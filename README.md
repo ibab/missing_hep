@@ -2,6 +2,14 @@
 
 A collection of functions to simplify and speed up High Energy Physics research with Python.
 
+## Installation
+
+To install the package to your home directory with pip, run
+
+```python
+pip install --user git+https://github/ibab/missing_hep
+```
+
 ## The histpoints plotting function
 
 In High Energy Physics, histograms are often displayed as a collection of data points, one for each bin.
