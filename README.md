@@ -31,9 +31,16 @@ plt.savefig('histpoints.png')
 
 ![histpoints](./histpoints.png)
 
+Or, displaying horizontal error bars to mark the bin width:
+```python
+histpoints(data, xerr='binwidth')
+```
+
+![histpoints\_binwidth](./histpoints_binwidth.png)
+
 By default, the number of bins is chosen automatically via the Freedman-Diaconis rule.
 
-Notice also that the error bars in this example are asymmetric, as opposed to the symmetric `sqrt(N)` error bars often seen in HEP publications.
+Notice also that the vertical error bars in this example are asymmetric, as opposed to the symmetric `sqrt(N)` error bars often seen in HEP publications.
 As the Poisson distribution becomes increasingly asymmetric for small count expectations, this is more accurate if there are few data points per bin.
 
 By default, `histpoints` uses the gamma distribution to calculate asymmetric error bars.

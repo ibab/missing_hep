@@ -22,7 +22,7 @@ def bin_errors(N, errors, confidence=0.6827):
     lower[N==0] = 0
     return N - lower, upper - N
 
-def histpoints(x, nbins=None, errors='gamma', *kargs, **kwargs):
+def histpoints(x, nbins=None, xerr=None, yerr='gamma', *kargs, **kwargs):
     import matplotlib.pyplot as plt
 
     if not nbins:
@@ -33,9 +33,12 @@ def histpoints(x, nbins=None, errors='gamma', *kargs, **kwargs):
     center = (bins[:-1] + bins[1:]) / 2
     area = sum(h * width)
 
-    lower, upper = bin_errors(h, errors)
+    lower, upper = bin_errors(h, yerr)
 
-    plt.errorbar(center, h, yerr=(lower, upper), fmt='o', color='black', markersize=5)
+    if xerr == 'binwidth':
+        xerr = width / 2
+
+    plt.errorbar(center, h, xerr=xerr, yerr=(lower, upper), fmt='o', color='black', markersize=5)
 
     return center, h, area
 
