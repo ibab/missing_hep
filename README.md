@@ -13,10 +13,10 @@ pip install --user git+https://github/ibab/missing_hep
 ## The histpoints plotting function
 
 In High Energy Physics, histograms are often displayed as a collection of data points, one for each bin.
-This allows one to attach error bars to each individual bin.
+This allows one to easily compare the data to an underlying probability model.
 
-It can be debated if it is correct to attach error bars to the individual bin contents as opposed to the underlying model expectation,
-as we want to know if the expectation can fluctuate to become the data and not vice versa.
+It can be debated if it is correct to attach error bars to the individual bin contents as opposed to the underlying model,
+as we want to know if our expectation could fluctuate to become the data and not vice versa.
 But this is a convention widely used by the HEP community, and thus a way to use this style of plotting in Python is often necessary.
 
 A simple way to create these kinds of plots is missing from other Python packages like matplotlib.
