@@ -28,7 +28,7 @@ def histpoints(x, nbins=None, xerr=None, yerr='gamma', *kargs, **kwargs):
     if not nbins:
         nbins = calc_nbins(x)
 
-    h, bins = np.histogram(x, bins=calc_nbins(x))
+    h, bins = np.histogram(x, bins=calc_nbins(x), *kargs, **kwargs)
     width = bins[1] - bins[0]
     center = (bins[:-1] + bins[1:]) / 2
     area = sum(h * width)
