@@ -7,7 +7,7 @@ A collection of functions to simplify and speed up High Energy Physics research 
 To install the package to your home directory with pip, run
 
 ```python
-pip install --user git+https://github/ibab/missing_hep
+pip install --user git+https://github.com/ibab/missing_hep
 ```
 
 ## The histpoints plotting function
