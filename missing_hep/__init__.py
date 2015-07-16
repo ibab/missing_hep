@@ -1,6 +1,9 @@
 
 from __future__ import division
-__all__ = ['calc_nbins', 'histpoints']
+
+
+from fourmomentum import FourMomentum
+__all__ = ['calc_nbins', 'histpoints', 'FourMomentum']
 
 import numpy as np
 import scipy.stats as stats
