@@ -32,7 +32,19 @@ class FourMomentum:
            )
 
   def __mul__(self, other):
-    return self.E * other.E - self.px * other.px - self.py * other.py - self.pz * other.pz
+    if isinstance(other, FourMomentum):
+        return self.E * other.E - self.px * other.px - self.py * other.py - self.pz * other.pz
+    else:
+        # Try to scale the four vector
+        return FourMomentum(
+                 self.E * other,
+                 self.px * other,
+                 self.py * other,
+                 self.pz * other
+               )
+
+  def __rmul__(other, self):
+      self.__mul__(other)
 
   def mass(self):
     return np.sqrt(self * self)

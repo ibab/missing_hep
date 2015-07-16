@@ -13,6 +13,8 @@ def test_methods():
 
     P + P
     P * P
+    42 * P
+    P * 42
     P.mass()
     P.dot3D(P)
     P.angle(P)
