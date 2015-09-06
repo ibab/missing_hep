@@ -2,7 +2,7 @@
 from __future__ import division
 
 
-from fourmomentum import FourMomentum
+from .fourmomentum import FourMomentum
 __all__ = ['calc_nbins', 'histpoints', 'FourMomentum']
 
 import numpy as np
