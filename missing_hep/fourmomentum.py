@@ -43,8 +43,8 @@ class FourMomentum:
                  self.pz * other
                )
 
-  def __rmul__(other, self):
-      self.__mul__(other)
+  def __rmul__(self, other):
+    return self.__mul__(other)
 
   def mass(self):
     return np.sqrt(self * self)
