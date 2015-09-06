@@ -10,6 +10,35 @@ To install the package to your home directory with pip, run
 pip install --user git+https://github.com/ibab/missing_hep
 ```
 
+## The FourMomentum class
+
+A class for working with four momenta is provided.
+To use it, pass values or arrays to the `FourMomentum` constructor:
+
+```python
+from missing_hep import FourMomentum
+
+P = FourMomentum(10, 1, 2, 3)
+print(P.mass())
+# 9.2736184954957039
+
+from math import sqrt
+print(sqrt(P * P))
+# 9.2736184954957039
+```
+
+`FourMomentum` is also designed to work with arrays of numbers (for example, columns from a pandas DataFrame):
+```python
+
+import numpy as np
+X = np.random.uniform(0, 100, size=10)
+
+P = FourMomentum(X, 0, 0, X)
+
+print(P.mass())
+# array([ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.])
+```
+
 ## The histpoints plotting function
 
 In High Energy Physics, histograms are often displayed as a collection of data points, one for each bin.
@@ -31,8 +60,8 @@ import scipy.stats as stats
 data = np.random.normal(0, 1, 200)
 x, y, norm = histpoints(data)
 
-x = np.linspace(-4, 4, 200)
-plt.plot(x, norm * stats.norm.pdf(x, 0, 1), 'b-', lw=2)
+xs = np.linspace(-4, 4, 200)
+plt.plot(xs, norm * stats.norm.pdf(xs, 0, 1), 'b-', lw=2)
 
 plt.savefig('histpoints.png')
 ```
@@ -49,8 +78,6 @@ histpoints(data, xerr='binwidth')
 By default, the number of bins is chosen automatically via the Freedman-Diaconis rule.
 
 Notice also that the vertical error bars in this example are asymmetric, as opposed to the symmetric `sqrt(N)` error bars often seen in HEP publications.
-As the Poisson distribution becomes increasingly asymmetric for small count expectations, this is more accurate if there are few data points per bin.
-
 By default, `histpoints` uses the gamma distribution to calculate asymmetric error bars.
 The frequentist coverage properties of this approach can be seen from the following demonstration:
 
